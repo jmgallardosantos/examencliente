@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Propiedades de los eventos de teclado.</title>
+
+    </head>
+
+    <body>
+        <input id="campo" type="text" placeholder="Pincha aqui ">
+
+        <script>
+            addEventListener("DOMContentLoaded",tecla,false)
+
+            function tecla(){
+                document.getElementById("campo").addEventListener("keyup",pulsa) //keyup se suelta y keydown presiona
+            }
+            function pulsa(c){
+                if(!c) c = window.event
+                if(c.shiftKey){
+                    alert('Has pulsado la tecla shift')
+                }
+                if(c.altKey){
+                    alert('Has pulsado la tecla alt')
+                }
+                if(c.ctrlKey){
+                    alert('Has pulsado la tecla control')
+                }          
+            }
+        </script>
+    </body>
+</html>

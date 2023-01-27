@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Modelo de disparo o flujo de eventos </title>
+    </head>
+
+    <body>
+        <div id="capt1">
+            <span id="capt2" >
+                <p id="capt3"> Fase de captura </p>
+                </span>
+        </div>
+        
+        <br>
+        
+        <div id="bur1">
+            <span id="bur2">
+                <p id="bur3"> Fase de burbuja </p>
+            </span>
+        </div>
+
+        
+        <script>  // true va de fuera hacia dentro (captura)
+            var capt1=document.getElementById('capt1')
+            var capt2=document.getElementById('capt2')
+            var capt3=document.getElementById('capt3')
+            capt1.addEventListener('click',function(){alert('La etiqueta div acaba de ejecutarse')},true);
+            capt2.addEventListener('click',function(){alert('La etiqueta span acaba de ejecutarse')},true);
+            capt3.addEventListener('click',function(){alert('La etiqueta p acaba de ejecutarse')},true);
+            
+
+            //false va de dentro hacia fuera (burbuja)
+            var bur1=document.getElementById('bur1')
+            var bur2=document.getElementById('bur2')
+            var bur3=document.getElementById('bur3')
+            bur1.addEventListener('click',function(){alert('La etiqueta div acaba de ejecutarse')},false);
+            bur2.addEventListener('click',function(){alert('La etiqueta span acaba de ejecutarse')},false);
+            bur3.addEventListener('click',function(){alert('La etiqueta p acaba de ejecutarse')},false);
+        
+        </script>
+
+    </body>
+
+</html>

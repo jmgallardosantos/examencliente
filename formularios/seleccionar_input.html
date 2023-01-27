@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Eventos Forms: Change </title>
+
+    </head>
+
+    <body>
+
+        <label>Seleccione un color:
+
+            <select class="color" name="color">
+                <option value="">Elija...</option>
+                <option value="azul">Azul</option>
+                <option value="rosa">Rosa</option>
+                <option value="negro">Negro</option>
+                <option value="Amarillo">Amarillo</option>
+            </select>
+
+        </label>
+
+        
+        <div class="texto">  </div>
+        
+        <script>
+
+            var colores = document.querySelector('.color');
+            
+            colores.addEventListener('change', funcion)
+
+            function funcion(e){
+                var texto = document.querySelector('.texto');
+                texto.textContent = `Tu color favorito es el ${e.target.value}`;
+            }
+            
+        </script>  
+    </body>
+</html>

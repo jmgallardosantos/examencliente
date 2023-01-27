@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/Estilos.css">
+    <title>actividad5.5</title>
+    <!--<script type="text/javascript" src="actividad5.5.js"></script>-->
+</head>
+
+<body>
+    
+    <div>
+        <img id="Fondo" src="img/ordenador_viejo.jpg" alt="Imagen genérica"  />
+    </div>
+<script>
+    var img = document.getElementById("Fondo");
+    // mousedown cuando presionas cualquier tecla del raton
+    img.addEventListener('mousedown', () =>{
+            img.setAttribute("src", "img/ordenador_nuevo.jpg");
+    });
+    // mouseup cuando sueltas cualquier tecla del raton
+    img.addEventListener('mouseup', () =>{
+        img.setAttribute("src", "img/ordenador_viejo.jpg");
+    });
+    
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>preventDefault</title>
+
+    </head>
+
+    <body>
+
+        <a id="link" href="http://www.google.com"> Pulse aquí</ a>
+
+        <script>
+            var link = document.getElementById ('link');
+
+            link.addEventListener ('click', function (e) {
+            e.preventDefault () // Se bloquea la acción predeterminada de este evento
+            alert ('Has hecho clic para ser redireccionado a la página de principal de google, pero el evento se ha bloqueado');
+            }, false);
+
+        </script>
+    </body>
+</html>

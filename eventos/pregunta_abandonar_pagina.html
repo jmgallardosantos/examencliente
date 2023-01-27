@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Control de abandono de página</title>
+
+    </head>
+
+    <body>
+        <h1>Ejemplo de abandono de página</h1>
+
+
+        <p><a href="http://www.jasoft.org">Ir a la pagina de jasoft</a></p>
+        <p> <a href="http://www.google.org">Ir a la pagina de google</a></p>
+
+
+        <script>
+            //Este evento permite que una página web active un cuadro de diálogo
+            // de confirmación que le pregunta al usuario si realmente desea abandonar la página.
+            // Si el usuario confirma, el navegador navega a la nueva página, de lo contrario cancela la navegación.
+        window.addEventListener('beforeunload', (event) => {
+            event.returnValue = null;
+        });
+        </script>
+        
+
+    </body>

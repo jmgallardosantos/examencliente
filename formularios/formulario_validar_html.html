@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Validación HTML</title>
+
+        <!--Creamos estilos para darle al formulario el.azul lo usaremos para darle color a un boton, el .col para
+            rellenar un campo texto y el .field para darle color a una fiedset del formulario.-->
+        <style type="text/css">
+            .azul{
+            color: red;
+            border-bottom: 4px solid blue;
+            }
+            .col{ background-color: #FFFF00;}
+            .field{background:beige; border-color: #F00;}
+        </style>
+
+    </head>
+
+    <body>
+        
+        <!-- Creamos un formulario con la etiqueta form.-->
+        <form action="" method="">
+
+            <!--Agrupamos los elementos del formulario por datos personales-->
+            <fieldset> <legend> Datos personales </legend>
+                <!--Puesto que los datos nombre y apellidos debe ser introducidos obligatoriamente usaremos el 
+                    atributo required en el input-->
+                <p>Escribe tu nombre: <input type="text" name="nombre" size="20"  required/></p>
+                <p>Escribe tus apellidos: <input class="col" type="text" name="apellidos" size="30" required/></p>
+                <!--Para pedir los datos del email y de la web personal usaremos los tipos de input email y url 
+                    respectivamente.-->
+                <p>Escribe tu Email: <input type="email" name="email" placeholder="example@example.com" size="30" required></p>
+                <p>Web Personal: <input type="url" name="url" placeholder="https://example.com" size="30" required></p>
+                <p>Color favorito: <input type="color" name="color"></p>
+                <!--Creamos una caja de texto que sea de 6 filas y 69 columnas-->
+                <textarea rows='6' cols='59'>Utilice este cuadro para escribir sobre su formación academica</textarea>
+            </fieldset>
+            
+            <!--Agrupamos los elementos del formulario por genero y le asociamos la clase definida en el estilo.-->
+            <fieldset class="field">
+                <legend>Indique sus género</legend>
+                <select name='sexo' multiple='multiple'>
+                <option value='hombre'>Hombre</option>
+                <option value='mujer'>Mujer</option>
+                <option value="nsnc">Prefiero no contestar</option>
+                </select>
+                <br/>
+                <input type='checkbox' name='sexo' value='sexomujer'> Mujer   <br/>
+                <input type='checkbox' name='sexo' value='sexohombre'> Hombre   <br/>
+                <input type='checkbox' name='sexo' value='sexonose'>Prefiero no contestar  <br/>
+            </fieldset>
+
+            <!--Para ingresar la contraseña usamos el tipo password-->            
+            <fieldset> <legend>Login</legend>
+                <p>Nombre usuario:<input type="text" name="nombre" id="nombre" placeholder="Nombre usuario"></p>
+                <p>Contraseña:<input type="password" name="clave" id="clave" placeholder="introduce clave"></p>
+            </fieldset>
+
+            <!-- El usuario deberá seleccionar ambas opciones (required) y por defecto la primera debera aparecer
+                chequeada por defecto (cheked).-->
+            <fieldset> <legend> Consentimiento </legend>
+                <p> <input type="checkbox" name="info" checked="checked" required > Deseo recibir información sobre novedades y ofertas </p>
+                <p> <input type="checkbox" name="condiciones" required > Declaro haber leido y aceptar las condiciones generales del programa y la normativa sobre protección de datos</p>
+            </fieldset>
+            
+            <!-- EL usuario solo podrá elegir una opción como prefencia para ello usamos el tipo radio.-->
+            <fieldset><legend>Indique sus preferencias por favor</legend>
+                <input type='radio' name='lenguaje' value='leguajejava'> JavaScript 
+                <input type='radio' name='lenguaje' value='lenguajeHTML'> HTML 
+                <input type='radio' name='lenguaje' value='lenguajephyton'> Phyton 
+                <br/>
+            </fieldset>
+
+            <!--Usaremos los tipo date para ingresar una fecha y time para la hora  -->
+            <fieldset> <legend> Reserva Hotel   </legend>
+                <p>Fecha de llegada:<input type="date" name="hora" id="llegada"></p>
+                <p>Hora de entrada: <input type="time" name="hora" id="horaentrada"></p>
+                <p>Fecha de salida: <input type="date" name="hora" id="salida"></p>
+                <p>Hora de salida: <input type="time" name="hora" id="horasalida"></p>
+
+            </fieldset>
+            
+            
+            
+            <fieldset> <legend> Compra </legend>
+                <!--EL usuario deberá poner el número de botellas agua que quiere comprar entre 0 y 8-->
+                <p> Número de botellas: <input type="number" name="cantidadagua" id="cantidadagua" min="0" max="8"></p>
+                <!--EL usuario deberá poner el número de botellas agua que quiere comprar avanzando de 6 en 6.-->
+                <p> Número de botellas en paquete: <input type="number" name="cantidadagua" id="cantidadaguapack" min="0" step="6"></p>
+                <!--Usuario seleccionará el tipo de carne que desea (roja o Blanca) y despues ingresará la cantidad
+                    carne que desea comprar con un formato predeterminado.-->
+                <p> Carne: 
+                    <select name="carne" id="carne">
+                        <option value="Elija">Elija</option>
+                        <option value="roja">Roja</option>
+                        <option value="blanca">Blanca</option>  
+                    </select>           
+                    <p> Cantidad:<input type="text" name="cantidadcarne" id="cantidadcarne" placeholder="10kg o 10gr" pattern="[0-9]+(kg|gr)"></p> 
+                </p>
+                <!--Usuario seleccionará el tipo de carne que desea dentro de dos categorias.-->
+                <p> Carne: 
+                    <select name="carne" id="carnetipo">
+                        <optgroup label="Carne roja">
+                            <option value="Elija">Elija</option>
+                            <option value="Ternera">Ternera</option>
+                            <option value="Cerdo">Cerdo</option>
+                            <option value="Buey">Buey</option>
+                        </optgroup>  
+                        <optgroup label="Carne Blanca">
+                            <option value="Pollo">Pollo</option>
+                            <option value="Pavo">Pavo</option>
+                            <option value="Conejo" disabled>Conejo</option>
+                        </optgroup> 
+                    </select>           
+                </p>
+                
+
+
+
+            </fieldset>
+            
+            <!--Creamos los botones de enviar y borrar todo el formulario, dandole un estilo al boton de enviar-->
+            <input class="azul" type="submit" name="enviar" value="Enviar"  >
+            <input type="reset" name="borrar" value="Borrar"  >
+        </form>
+    </body>
+
+</html>

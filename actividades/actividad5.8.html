@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>actividad5.8</title>
+    <!--<script type="text/javascript" src="actividad5.8.js"></script>-->
+
+</head>
+<body>
+    
+    <form action="" method="">
+        <fieldset> <legend> Datos personales </legend>
+            <p>Introduce tu nombre: <input type="text" name="nombre" size="20"  required/></p>
+            <textarea rows='6' cols='59'>Mensaje:</textarea>
+
+        </fieldset>
+        <br>
+        <p>Elige un color <br> <br> <!-- selecciona solo uno botoncitos redondos-->
+        <input type='radio' name='color' id="red" > Rojo <br>
+        <input type='radio' name='color' id="green" > Verde <br>
+        <input type='radio' name='color' id="blue" > Azul 
+        </p>
+        <br>
+    <p>Seleccione una asignatura  <!--desplegables solo se puede seleccionar uno-->
+        <select name="asignatura" id="asignatura">
+            <option value="Elija">Elija</option>
+            <option value="1">Php</option>
+            <option value="2">Javascript</option> 
+            <option value="3">Empresa</option> 
+            <option value="4">Diseño</option>
+            <option value="5">Despliegue</option>
+        </select>
+    </p> <br>
+    <p> Seleccione los dias con disponibilidad <br> <!--botoncitos cuadrados y puedes seleccionar varios-->
+       
+        <input class="dias" type='checkbox'  value='lunes'> Lunes   <br/>
+        <input class="dias" type='checkbox'  value='martes'> Martes   <br/>
+        <input class="dias" type='checkbox'  value='miercoles'> Miercoles   <br/>
+        <input class="dias" type='checkbox'  value='jueves'> Jueves   <br/>
+        <input class="dias" type='checkbox'  value='viernes'> Viernes 
+
+    </p>   <br/>
+    <p>Selecciona el dia que prefieres <!--desplegable y puedes seleccionar 1-->
+        <select name="semana" id="semana">
+            <option value="Elija">Elija</option>
+            <option value="lunes">Lunes</option>
+            <option value="martes">Martes</option>
+            <option value="miercoles">Miercoles</option> 
+            <option value="jueves">Jueves</option> 
+            <option value="viernes">Viernes</option>
+        </select>
+
+    </p>
+
+    <input class="azul" type="submit" name="enviar" id="boton" value="Haz click para enviar informacion"  >
+    <input class="azul" type="reset" name="comenzar" value="Comenzar a rellenar de nuevo"  >
+    <input class="azul" type="button" onclick= "window.location.href='http:/www.google.com/';" value="Haz click sobre mi"/>
+    </form>
+    
+    <script>
+        document.forms[0].addEventListener('submit',(x) => {
+           select();
+           dia();
+        });
+        
+        document.forms[0].elements.color.forEach(col => {
+            col.addEventListener('change' , color);
+        });
+        
+        function color() {
+            let radios = document.querySelector('input[type="radio"][name="color"]:checked');
+            document.body.style.backgroundColor = radios.id;
+        }
+        
+        function select() {
+    var sel = document.querySelector('select').value;
+    switch (parseInt(sel)) {
+        case 1:
+            alert("Se enviará a Jesús");
+            break;
+        case 2:
+            alert("Se enviará a Miguel Ángel");
+            break;
+        case 3:
+            alert("Se enviará a Ricardo");
+            break;
+        case 4:
+            alert("Se enviará a Rafael");
+            break;
+        case 5:
+            alert("Se enviará a Andrés");
+            break;
+        case 0:
+            alert("Por favor, seleccione una asignatura");
+            break;
+
+    }
+}
+        
+        
+        function dia() {
+            let dias = document.querySelectorAll('.dias:checked'),
+                ultimo = dias[dias.length-1].value;
+            alert("El dia seleccionado es el  " + ultimo);
+        }
+        
+        </script>
+
+
+</body>
+</html>

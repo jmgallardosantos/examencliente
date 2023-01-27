@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Eventos de teclado</title>
+    </head>
+
+    <body>
+
+        <input type="text" id="texto" maxlength="20"> 
+        <p> Maxima cantidad de caracteres disponibles 
+            <span id="cantidad">20</span>
+        </p>
+
+        <script>
+            /*Podemos hacer uso de los distintos eventos de teclado como keypress, keydown y keyup y analizar las diferencias*/
+            addEventListener("DOMContentLoaded",tecla,false);  //Sirve para decir al dom que hay que esperar a que cargue la pagina
+            
+            var texto = document.getElementById("texto"); // añadimos a la variable texto lo que hay en el imput con id texto.
+
+            function tecla(){
+                texto.addEventListener("keyup",pulsa); // Esta funcion se activa cuando al pulsar una tecla se suelta y llamamos a la funcion pulsa.
+            }
+
+            function pulsa(){
+                var cant= document.getElementById('texto').value.length; // Almacenamos en la variable cant el valor del input
+                var disp=20-parseInt(cant); // almacenamos en disp 20 - el valor de cant que se ha obtenido en el paso anterior.
+                document.getElementById('cantidad').innerHTML=disp; // mostramos el numero modificado en el campo del id cantidad.
+
+            }
+        </script>
+
+    </body>
+
+</html>

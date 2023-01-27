@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkbox</title>
+</head>
+
+<body>
+
+    <form>
+        <input type="checkbox" name="genero" id="genero1" value="Hombre">Hombre
+        </br>
+        <input type="checkbox" name="genero" id="genero2" value="Mujer">Mujer
+        </br>
+        <input type="checkbox" name="genero" id="genero3" value="No responder">No responde
+        </br>
+        <input type="button" id="boton" value="Mostrar">
+    </form>
+
+    <script>
+        document.getElementById("boton").addEventListener("click",funcion);
+        
+
+        function funcion(){
+            var contador =0;
+            var array=document.getElementsByName("genero")
+            for(i=0;i<array.length;i++){
+                array[i].checked ? contador++ : contador               
+            }
+            alert(contador)
+        }
+            
+        
+    </script>
+</body>
+</html>

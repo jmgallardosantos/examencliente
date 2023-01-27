@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="evento"> Target encontrar el elemento seleccionado</h1>
+    <h1 id="evento1"> Evento 1</h1>
+    <h1 id="evento2"> Evento 2</h1>
+    <script>
+        
+        var evento1= document.getElementById("evento1");
+        var evento2= document.getElementById("evento2");
+        evento1.addEventListener("click",saludar);
+        evento2.addEventListener("click",saludar);
+
+        function saludar(e){
+
+            if(e.target.id == "evento1")
+                {alert("Has seleccionado el evento1")}
+            else if (e.target.id == "evento2")
+                {alert("Has seleccionado el evento2")};
+
+
+}
+// ESTA FUNCION ES IGUAL A LA DE ARRIBA PERO REDUCIDA
+
+        //function saludar(e){
+
+            //if(e.target.id == "evento1"|| "evento2") alert("Has seleccionado el "+e.target.id);
+       // }
+
+    </script>
+</body>
+</html>

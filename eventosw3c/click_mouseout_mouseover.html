@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Modelo W3C</title>
+    </head>
+
+
+    <body>
+        <h3 id="w3c" > Modelo W3C </h3>
+
+        <script>
+            var elemt= document.getElementById("w3c")
+
+            elemt.addEventListener("click",saludar,false);
+            elemt.addEventListener("click",color,false);
+            elemt.addEventListener("mouseout", tamano, false);  //SUELTA EL RATON
+            elemt.addEventListener("mouseover", fondo, false);  //  CUANDO TE POSICIONA ENCIMA
+
+            function saludar(){
+                alert('Hola')
+                //elemt.removeEventListener("click",saludar)
+            }
+
+            function color(){
+                elemt.style.background='blue'
+            }
+
+            function tamano(){
+                elemt.style.fontSize= "x-large";
+            }
+
+            function fondo(){
+                elemt.style.background= "red";
+            }
+        
+
+    </script>
+        
+    </body>
+</html>

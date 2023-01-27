@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resize</title>
+
+  </head>
+
+  <body>
+
+      <p>Cambie el tamaño de la ventana de window.</p>
+      
+      <p id="cambio"> </p>
+      
+      <p>Con este ejemplo podremos tener problemas para versiones anteriores a la versión 8 de Internet Explorer,
+          puesto que las funciones utlizadas no se encuentran disponibles. </p>
+      
+    <script>
+      // Cada vez que se haga una modificación de la pestaña llamamos a funcion.
+      window.addEventListener("resize", funcion);
+
+      function funcion() {
+        // Obtenemos el ancho exterior del navegador.
+        var x = window.outerWidth;
+        // Obtenemos  la altura en pixeles de toda la ventana del navegador.
+        var h = window.outerHeight;
+        var txt = "Tamaño de la ventana: ancho= " + x + ", altura=" + h;
+        document.getElementById("cambio").innerHTML = txt;
+      }
+      </script>
+  </body>
+</html>

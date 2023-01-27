@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Error</title>
+  </head>
+
+  <body>
+
+  <!-- El evento onerror se ejecuta cuando se ha producido un error en la carga de la imagen, como en nuestro
+    directorio no se encuentra dicha imagen, se ejecutará la funcion asociada a dicho evento-->
+    <img src="image.gif" onerror="Error()">
+
+    <script>
+      function Error() {
+        alert('La imagen no se ha podido cargar.');
+      }
+    </script>
+  </body>
+
+
+</html>

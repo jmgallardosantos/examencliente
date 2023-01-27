@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Load y Unload</title>
+
+	</head>
+	
+	<body onload="carga('entrada')" onunload="carga('salida')">
+
+		<h3>Haz click sobre algun elemento.</h3>
+
+		<p><button type="button" onclick="presiona('boton');">Pulsa</button></p>
+
+		<p>Haz click en este <a href="" onclick="presiona('enlace');return false;">link</a></p>
+
+		<p><img onClick="presiona()" 
+			src="https://th.bing.com/th/id/R.ba83af6cd1b66fc40fe5bbc218bc90ff?rik=sGCT6QQCH5gFXQ&riu=http%3a%2f%2fopencode.us%2fwp-content%2fuploads%2f2013%2f10%2fjavascript_logo.png&ehk=HpRxpm9M01yvrncLG0tfS%2bL%2f1QcVdEdS1Is2bfzRBDU%3d&risl=&pid=ImgRaw&r=0" 
+			width="400" height="200" ></p>
+		
+		<p> Podemos encontrar problemas con la función unload puesto que en algunos sistemas no está implementada. </p>
+		
+		<script>
+			// Creamos una función que nos genere una alerta cuando se abre y otra cuando se cierra la página
+			function carga(A){
+				switch(A){
+					case "entrada":
+					alert("Hola has entrado en esta página.");
+					break;
+					case "salida":
+					alert("has abandonado la página")
+					window.open("https://www.w3schools.com/");
+					break;
+				}
+			}
+			
+			function presiona(parametro){
+				var texto;
+				switch(parametro){
+					case "boton":
+						texto="Presionaste el boton";
+						break;
+					case "enlace":
+						texto="Presionaste el link";			
+						break;
+					default:
+						texto="Presionaste la imagen";
+						break;
+				}
+				alert(texto);
+			}
+
+
+			
+			</script>
+	</body>
+</html>

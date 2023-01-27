@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Formularios: disabled y readonly</title>
+
+    </head>
+
+    <body>
+        <form> <!--disabled dentro del fieldeset desabilita los botones y no se pueden escribir-->
+            <fieldset disabled><legend>Datos personales</legend>
+                Escribe tu nombre:
+                <input type="text" name="Nombre" value="" size="10" maxlength="15" readonly>
+                </br>
+
+                Escribe tu apellido:
+                <input type="text" name="Apelliodo" value="" size="10" maxlength="15">
+                </br>
+           </fieldset>
+
+            <p><input type="password" name="contraseña" value="" placeholder="Introduce tu contraseña"></p>
+            <!--Este tipo hidden campo oculto-->
+            <input type="hidden" name="oculto" placeholder="">
+           <!--Este campo es para adjuntar archivos-->
+            <p><input type="file" name="adjunto" placeholder="2"></p>
+
+            <p>
+                <input type="submit" name ="enviar" value="Enviar">
+                <input type="reset"name="reset">
+            </p>
+
+
+        </form>
+    </body>
+</html>

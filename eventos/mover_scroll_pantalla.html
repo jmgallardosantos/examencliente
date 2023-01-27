@@ -1,0 +1,45 @@
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Scroll </title>
+
+        <style>
+           /*Creamos un cuadrado relleno de color azul*/
+            div{
+                background-color: blue;
+                height: 2000px; width: 2000px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+    
+        <div> 
+            <p>
+                Haga click para hacer Scroll.
+            </p>
+            <!-- Hacemos fija la posción del boton-->
+            <button id="boton" style="position:fixed;" >Haga click</button>
+        </div>
+
+        <script>
+            var boton=document.getElementById("boton")
+            boton.addEventListener("click",funcion)
+            function funcion(){
+                // Desplazamos el documento 100 pixeles para la derecha y hacia bajo.
+                window.scrollBy(100,100);
+                /* Le pedimos que genere una alerta con el número de pixeles que el 
+                    documento ha sido desplazado horizontalmente y verticalmente.*/
+                alert("scroll x: " + window.scrollX + "scroll y:" +window.scrollY);
+            }
+
+        </script>
+
+    </body>
+</html>
