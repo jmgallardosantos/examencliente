@@ -53,8 +53,8 @@ function generaNueve(){
      ************************************/
     /**
      * Genera la tabla de alumnos
-     * @param {array} cabecera // ???????????????????????
-     * @param {array} cuerpo // ?????????????????????
+     * @param {array} cabecera // 
+     * @param {array} cuerpo // 
      */
     function crearTablaAlum(cabecera, cuerpo){
         if(document.getElementById("tabla")){
@@ -68,7 +68,7 @@ function generaNueve(){
         var thead = document.createElement("thead");  // Creamos el elemento thead
         var tr = document.createElement("tr"); // Creamos el elemento tr.
         
-        for (e of cabecera){  //iteramos sobre el array cabecera y lo almacenamos cada iteracion en e
+        for (e of cabecera){  //iteramos sobre el array cabecera y lo almacenamos cada iteracion en e.
             var th = document.createElement("th"); // Creamos el elemento th.
             var nodoTexto = document.createTextNode(capitalize(e)); // Creamos un texto que cumpla con la funcion capitalize ?????????????
             th.appendChild(nodoTexto); // Añadimos el hijo nodotexto al padre th.
@@ -78,21 +78,21 @@ function generaNueve(){
         tabla.appendChild(thead);  // Añadimos el hijo thead al padre tabla
     
         // Genera el cuerpo de la tabla
-        var tbody = document.createElement("tbody");
-        for (fila of cuerpo){
-            tr = document.createElement("tr");
-            for (celda of fila){
-                var td = document.createElement("td");
-                nodoTexto = document.createTextNode(celda);
-                td.appendChild(nodoTexto);
-                tr.appendChild(td);
+        var tbody = document.createElement("tbody"); // Creamos el elemento tbody
+        for (fila of cuerpo){ // iteramos sobre cuerpo y cada elemento se lo pasamos a fila
+            tr = document.createElement("tr"); // Creamos el elemento tr.
+            for (celda of fila){ // iteramos sobre fila y se lo pasamos cada una a celda.
+                var td = document.createElement("td"); // Creamos el elemento td
+                nodoTexto = document.createTextNode(celda);// Creamos el texto nodo.
+                td.appendChild(nodoTexto); // Añadimos nodo texto al td.
+                tr.appendChild(td); // Añadimos los td al tr.
             }
-            tbody.appendChild(tr);
+            tbody.appendChild(tr); // Añadimos tr al tbody
         }
     
-        tabla.appendChild(tbody);
+        tabla.appendChild(tbody); // Añadimos el tbody a tabla
     
-        actividad.appendChild(tabla);
+        actividad.appendChild(tabla); // Añadimos tabla a activdad.
     
     }
 
@@ -103,7 +103,7 @@ function generaNueve(){
      * @param  {...any} re
      * @returns {boolean} true si hay alguno vacío
      */
-    function comprobarRegistros(...re){
+    function comprobarRegistros(...re){ // Funcion que comprueba si algún elemento esta vacio.
         let interruptor = false;
         re.forEach(e =>{
             if(e === ""){
@@ -116,24 +116,25 @@ function generaNueve(){
     /**
      * Almacena a los alumnos y sus notas 
      */
-    function guardarAlumno(){
+    function guardarAlumno(){ // Funcion que accede al valor de las siguientes id.
        var nombre = document.getElementById("alumno").value;
        var modulo1 = document.getElementById("modulo1").value;
        var modulo2 = document.getElementById("modulo2").value;
        var modulo3 = document.getElementById("modulo3").value;
 
        //Si algun campo está vacío rompe la secuencia de la función
-       if (comprobarRegistros(nombre, modulo1, modulo2, modulo3)){
+       if (comprobarRegistros(nombre, modulo1, modulo2, modulo3)){ // Comprobar que no falta ningun elemento.
            alert("Ningún campo puede estar vacío")
            return;
        }
 
        // comprueba si los campos esán en el tipo adecuado
-       if (isNaN(nombre) && !isNaN(modulo1, modulo2, modulo3)){
+       if (isNaN(nombre) && !isNaN(modulo1, modulo2, modulo3)){ // Comprueba que no es un numero y luego si es un numero
 
-            if ([modulo1, modulo2, modulo3].every(e => e >= 0 && e <= 10)){
+            if ([modulo1, modulo2, modulo3].every(e => e >= 0 && e <= 10)){ // Comprueba que cada uno de los elementos del a
+                //array esta entre 0 y 10
                 
-                ALUMNOS.push([nombre,modulo1, modulo2, modulo3]);
+                ALUMNOS.push([nombre,modulo1, modulo2, modulo3]); // Si es cierto las validaciones lo añadimos.
 
                 document.getElementById("alumno").value = "";
                 document.getElementById("modulo1").value = "";
@@ -145,7 +146,7 @@ function generaNueve(){
                     guardar.disabled = true;
                     generarTabla.disabled = false;
                 } 
-
+                // notificaciones mediante alert de los errores de los datos.
             } else{
                 alert("Error: Las notas deben estar comprendidas entre 0 y 10"); 
             }
