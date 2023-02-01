@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2U6</title>
+</head>
+<body>
+
+    <button id="añadirNodo"> Añadir nodo</button>
+    <button id="eliminarNodo"> Eliminar nodo</button>
+    <script>
+var boton = document.getElementById("añadirNodo");
+var boton1 = document.getElementById("eliminarNodo");
+boton.addEventListener("click", añadir);
+boton1.addEventListener("click", eliminar);
+
+function añadir(){
+var div = document.createElement("div");
+valor = prompt ("dame el valor del texto");
+var texto = document.createTextNode(valor);
+div.appendChild(texto);
+document.body.appendChild(div);  //lastchild
+}
+
+function eliminar (){
+document.body.removeChild(document.body.lastChild);
+
+
+}
+
+
+
+
+    </script>
+    
+</body>
+</html>
