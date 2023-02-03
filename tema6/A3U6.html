@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A3U6</title>
+</head>
+<body>
+<div id="actividad"></div>
+<button id="arranca" >Arranca</button>
+
+    <script>
+
+        var arranca = document.getElementById("arranca");
+        arranca.addEventListener("click", generaTrece);
+
+function generaTrece(){
+    
+
+    
+    var generarTabla = document.createElement("input");
+    generarTabla.setAttribute("type", "submit");
+    generarTabla.setAttribute("id", "generarTabla");
+    generarTabla.setAttribute("value", "Generar Tabla");
+    actividad.appendChild(generarTabla);
+
+    function crearTablaCoche(...vehiculos){
+        debugger;
+        
+  
+        
+        var tabla = document.createElement("table");
+        tabla.setAttribute("id", "tabla");
+        
+        var thead = document.createElement("thead");
+        var tr = document.createElement("tr");
+        const CABECERA = ["Marca", "Modelo", "Color", "Año de fabricación"];
+        
+      
+        for (e of CABECERA){
+            var th = document.createElement("th");
+            var nodoTexto = document.createTextNode(e);
+            th.appendChild(nodoTexto);
+            tr.appendChild(th);
+        }
+        thead.appendChild(tr);
+        tabla.appendChild(thead);
+
+        var tbody = document.createElement("tbody");
+    
+         for (let i = 0; i < vehiculos.length; i++){
+            var tr = document.createElement("tr");
+            
+            for (const key in vehiculos[i]) {
+                if (typeof vehiculos[i][key] != "function") {
+                    var td = document.createElement("td");
+                    nodoTexto = document.createTextNode(`${vehiculos[i][key]}`);
+                    td.appendChild(nodoTexto);
+                    tr.appendChild(td);
+                }
+                
+            }
+            tbody.appendChild(tr);
+        }
+        tabla.appendChild(tbody);
+        actividad.appendChild(tabla);
+    
+    }
+    
+    function Vehiculo(marca, modelo, color,ano_fab){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.color = color;
+        this.ano_fab = ano_fab;
+        this.arrancar = function(){
+                let texto = "El coche de marca " +  this.marca 
+                + " modelo " + this.modelo
+                + " color " + this.color
+                + " ha arrancado";
+        console.log(texto);
+        }
+    }
+    var coche1 = new Vehiculo("Peugeot", "307", "Rojo", "2005");
+    var coche2 = new Vehiculo("Ferrari", "Scaglietti", "Rojo", "2010");
+    var coche3 = new Vehiculo("BMW", "Z4", "Blanco", "2010");
+    var coche4 = new Vehiculo("Seat", "Toledo", "Azul", "1990");
+    var coche5 = new Vehiculo("Fiat", "500", "Verde", "1995");
+    
+    // listeners
+ 
+    document.getElementById("generarTabla")
+            .addEventListener('click', () => {
+                crearTablaCoche(coche1, coche2, coche3, coche4)
+            });
+
+}
+
+
+
+    </script>
+    
+</body>
+</html>

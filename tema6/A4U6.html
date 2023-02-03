@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4U6</title>
+</head>
+<body onload = "generaNueve();">
+    <div id="actividad"></div>
+
+    <script>
+
+function generaNueve(){   
+    
+    const ALUMNOS = [];
+
+   
+    function crearTablaAlum(cabecera, cuerpo){
+        if(document.getElementById("tabla")){
+            actividad.removeChild(document.getElementById("tabla"))
+        }
+
+        
+
+        var tabla = document.createElement("table");  // Creamos el elemento table.
+        tabla.setAttribute("id", "tabla"); //    <table id="tabla"></table>
+        
+        // genera la cebecera de la tabla
+        var thead = document.createElement("thead");  // Creamos el elemento thead
+        var tr = document.createElement("tr"); // Creamos el elemento tr.
+        
+function capitalize(s){
+    return s.charAt(0).toLocaleUpperCase() + s.slice(1);
+}
+
+        for (e of cabecera){  //iteramos sobre el array cabecera y lo almacenamos cada iteracion en e.
+            var th = document.createElement("th"); // Creamos el elemento th.
+            var nodoTexto = document.createTextNode(capitalize(e)); // Creamos un texto que cumpla con la funcion capitalize ?????????????
+            th.appendChild(nodoTexto); // Añadimos el hijo nodotexto al padre th.
+            tr.appendChild(th); // Añadimos el hijo th al padre tr.
+        }
+        thead.appendChild(tr); // Añadimos el hijo tr al padre thead.
+        tabla.appendChild(thead);  // Añadimos el hijo thead al padre tabla
+    
+        // Genera el cuerpo de la tabla
+        var tbody = document.createElement("tbody"); // Creamos el elemento tbody
+        for (fila of cuerpo){ // iteramos sobre cuerpo y cada elemento se lo pasamos a fila
+            tr = document.createElement("tr"); // Creamos el elemento tr.
+            for (celda of fila){ // iteramos sobre fila y se lo pasamos cada una a celda.
+                var td = document.createElement("td"); // Creamos el elemento td
+                nodoTexto = document.createTextNode(celda);// Creamos el texto nodo.
+                td.appendChild(nodoTexto); // Añadimos nodo texto al td.
+                tr.appendChild(td); // Añadimos los td al tr.
+            }
+            tbody.appendChild(tr); // Añadimos tr al tbody
+        }
+    
+        tabla.appendChild(tbody); // Añadimos el tbody a tabla
+    
+        actividad.appendChild(tabla); // Añadimos tabla a activdad.
+    
+    }
+
+    function comprobarRegistros(...re){ // Funcion que comprueba si algún elemento esta vacio.
+        let interruptor = false;
+        re.forEach(e =>{
+            if(e === ""){
+                interruptor = true;
+            }
+        }); 
+        return interruptor;
+    }
+
+    /**
+     * Almacena a los alumnos y sus notas 
+     */
+    function guardarAlumno(){ // Funcion que accede al valor de las siguientes id.
+       var nombre = document.getElementById("alumno").value;
+       var modulo1 = document.getElementById("modulo1").value;
+       var modulo2 = document.getElementById("modulo2").value;
+       var modulo3 = document.getElementById("modulo3").value;
+
+       //Si algun campo está vacío rompe la secuencia de la función
+       if (comprobarRegistros(nombre, modulo1, modulo2, modulo3)){ // Comprobar que no falta ningun elemento.
+           alert("Ningún campo puede estar vacío")
+           return;
+       }
+
+       // comprueba si los campos esán en el tipo adecuado
+       if (isNaN(nombre) && !isNaN(modulo1, modulo2, modulo3)){ // Comprueba que no es un numero y luego si es un numero
+
+            if ([modulo1, modulo2, modulo3].every(e => e >= 0 && e <= 10)){ // Comprueba que cada uno de los elementos del a
+                //array esta entre 0 y 10
+                
+                ALUMNOS.push([nombre,modulo1, modulo2, modulo3]); // Si es cierto las validaciones lo añadimos.
+
+                document.getElementById("alumno").value = "";
+                document.getElementById("modulo1").value = "";
+                document.getElementById("modulo2").value = "";
+                document.getElementById("modulo3").value = "";
+
+                if (ALUMNOS.length >= NUMALUM ){
+                    alert("Todos los alumnos estan introducidos");
+                    guardar.disabled = true;
+                    generarTabla.disabled = false;
+                } 
+                // notificaciones mediante alert de los errores de los datos.
+            } else{
+                alert("Error: Las notas deben estar comprendidas entre 0 y 10"); 
+            }
+
+       } else{
+            if(!isNaN(nombre)){
+                alert(`Dato incorreco: ${nombre} no es un nombre`);
+            }
+            if (isNaN(modulo1, modulo2, modulo3)){
+                alert("Dato incorrecto: combruebe que en los modulos las notas sean números");
+            }
+       }
+
+
+    }
+
+
+    /************************************
+     *
+     * CREA EL CONTENIDO DE LA ACTIVIDAD
+     * 
+     ************************************/
+
+    // Combrobamos que no existe el contenedor de la actividad si existe lo borramos 
+    
+    //creamos el formulario
+    const FORMULARIO = ["alumno", "modulo 1", "modulo 2", "modulo 3"];
+   
+    FORMULARIO.forEach(e =>{
+        //creacion del label
+        var p = document.createElement("p");
+        var la = document.createElement("label");
+        la.setAttribute("for", e.replace(" ", ""));
+        nodoTexto = document.createTextNode(`${capitalize(e)}: `);
+        la.appendChild(nodoTexto);
+        p.appendChild(la);
+        
+        function capitalize(s){
+    return s.charAt(0).toLocaleUpperCase() + s.slice(1);
+}
+        
+        //creacion de los inputs
+        var inp = document.createElement("input");
+        inp.setAttribute("type", "text");
+        inp.setAttribute("name", e.replace(" ", ""));
+        inp.setAttribute("id", e.replace(" ", ""));
+        p.appendChild(inp);
+        
+        //Metemos todo en el div
+        actividad.appendChild(p);
+    });
+
+    //Generamos los botones para enviar
+    var guardar = document.createElement("input");
+    guardar.setAttribute("type", "submit");
+    guardar.setAttribute("id", "guardar");
+    guardar.setAttribute("value", "Guardar");
+    actividad.appendChild(guardar);
+
+    var generarTabla = document.createElement("input");
+    generarTabla.setAttribute("type", "submit");
+    generarTabla.setAttribute("id", "generarTabla");
+    generarTabla.setAttribute("value", "Generar Tabla");
+    generarTabla.setAttribute("enabled", "");
+    actividad.appendChild(generarTabla);
+
+    // listeners
+    document.getElementById("guardar").addEventListener('click', guardarAlumno);
+
+
+
+
+
+    document.getElementById("generarTabla")
+            .addEventListener('click', () => {
+                crearTablaAlum(FORMULARIO, ALUMNOS)
+            });
+
+
+
+    
+}
+
+
+
+    </script>
+    
+</body>
+</html>

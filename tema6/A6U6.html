@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A6U6</title>
+    
+<body>
+<div id="div">
+    <button id="boton1">boton1</button>
+    <button id="boton2">boton2</button>
+    <button id="boton3">boton3</button>
+    <button id="boton4">boton4</button>
+    <button id="boton5">boton5</button>
+</div>   
+   <button id="activar">activar</button>
+   
+
+   <script>
+    var  desactivar = document.querySelector("div");
+    var boton1 = document.getElementById("boton1");
+    var boton2 = document.getElementById("boton2");
+    var boton3 = document.getElementById("boton3");
+    var boton4 = document.getElementById("boton4");
+    var boton5 = document.getElementById("boton5");
+    boton1.addEventListener("click", texto);
+    boton2.addEventListener("click", texto);
+    boton3.addEventListener("click", texto);
+    boton4.addEventListener("click", texto);
+    boton5.addEventListener("click", texto);
+    desactivar.addEventListener("click", desactivado);
+
+   function texto (){
+      alert("aqui tiene tu imagen")
+   }
+
+   function desactivado (){
+    desactivar.disabled = false;
+   }
+
+   </script>
+</body>
+</html>

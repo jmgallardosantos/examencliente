@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mejorado</title>
+</head>
+<body>
+    
+	
+	<br><br>
+		<div><button id="btnOcultar">Ocultar</button>
+		<button id="btnMostrar">Mostrar</button>
+		<p id="parrafo">Hola, soy el parrafo 1.</p></div>
+
+        <div><button id="btnOcultar1">Ocultar</button>
+		<button id="btnMostrar1">Mostrar</button>
+		<p id="parrafo1">Hola, soy el parrafo 2.</p></div>
+
+        <button id="btnOcultar2">Ocultar</button>
+		<button id="btnMostrar2">Mostrar</button>
+		<p id="parrafo2">Hola, soy el parrafo 3.</p>
+        <script>
+    
+
+// parrafo1
+const $btnOcultar = document.querySelector("#btnOcultar"),
+	$btnMostrar = document.querySelector("#btnMostrar"),
+	$parrafo = document.querySelector("#parrafo");
+
+$btnMostrar.addEventListener("click", () => {
+	$parrafo.style.display = "block";
+});
+
+
+$btnOcultar.addEventListener("click", () => {
+	$parrafo.style.display = "none";
+});
+
+//parrafo2
+
+const $btnOcultar1 = document.querySelector("#btnOcultar1"),
+	$btnMostrar1 = document.querySelector("#btnMostrar1"),
+	$parrafo1 = document.querySelector("#parrafo1");
+
+$btnMostrar1.addEventListener("click", () => {
+	$parrafo1.style.display = "block";
+});
+
+
+$btnOcultar1.addEventListener("click", () => {
+	$parrafo1.style.display = "none";
+});
+
+//parrafo3
+
+const $btnOcultar2 = document.querySelector("#btnOcultar2"),
+	$btnMostrar2 = document.querySelector("#btnMostrar2"),
+	$parrafo2 = document.querySelector("#parrafo2");
+
+$btnMostrar2.addEventListener("click", () => {
+	$parrafo2.style.display = "block";
+});
+
+
+$btnOcultar2.addEventListener("click", () => {
+	$parrafo2.style.display = "none";
+});
+
+
+        </script>
+</body>
+</html>
