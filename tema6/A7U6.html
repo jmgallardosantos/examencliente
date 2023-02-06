@@ -1,17 +1,81 @@
 <!DOCTYPE html>
-<html lang="es">
+<html id="valorTexto" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A7U6</title>
 </head>
-<body>
+<body id="body1">
+    <form id="form1" action="/my-handling-form-page" method="post">
+        <ul id="ul1">
+         <li id="li1">
+           <label id="nombre"  for="name">Nombre:</label>
+           <input type="text" id="name" name="user_name">
+         </li>
+         <li>
+           <label for="mail">Correo electrónico:</label>
+           <input type="email" id="mail" name="user_mail">
+         </li>
+         <li>
+           <label for="msg">Mensaje:</label>
+           <textarea id="msg" name="user_message"></textarea>
+         </li>
+        </ul>
+       </form>
 
     <script>
+      var html = document.documentElement;
 
-        var dom = document;
-        aler ("dom");
+      var head = html.firstChild;
+      var body = html.lastChild;
+      var form = body.firstChild;
+      var numeroHijoHead = head.childNodes.length;
+      var numeroHijoBody = body.childNodes.length;
+      //alert (numeroHijoHead);
+      //alert (numeroHijoBody);
+
+      document.write (html + "<br>");
+      document.write("........." + html.childNodes[0] + "<br>");
+      //document.write(".................." + head.childNodes[0] + "<br>")
+      document.write(".................." + head.childNodes[1] + "<br>")
+      //document.write(".................." + head.childNodes[2] + "<br>")
+      document.write(".................." + head.childNodes[3] + "<br>")
+      //document.write(".................." + head.childNodes[4] + "<br>")
+      document.write(".................." + head.childNodes[5] + "<br>")
+      //document.write(".................." + head.childNodes[6] + "<br>")
+      document.write(".................." + head.childNodes[7] + "<br>")
+      //document.write(".................." + head.childNodes[8] + "<br>")
+     
+      document.write("........." + html.childNodes[2] + "<br>");
+      //document.write(".................." + body.childNodes[0] + "<br>")
+      document.write(".................." + body.childNodes[1] + "<br>")
+      document.write(".................." + form.childNodes[1] + "<br>")
+
+
+
+      
+
+ /*var htmlValue = nombre.childNodes[0].nodeValue;
+ alert (htmlValue);
+      
+
+      for(var i=0; i<=html.childNodes.length; i++){
+        document.write(html.childNodes[i] + "<br>" ); //.nodeValue;
+      }
+
+      for(var i=0; i<=head.childNodes.length; i++){
+        document.write("........." + head.childNodes[i] + "<br>" );
+      }
+
+      for(var i=0; i<=body.childNodes.length; i++){
+        document.write("....................." + body.childNodes[i] + "<br>"  );
+      }
+
+*/
+      
+
+
     </script>
 </body>
 </html>
