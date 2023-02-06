@@ -25,57 +25,13 @@
        </form>
 
     <script>
-      var html = document.documentElement;
-
-      var head = html.firstChild;
-      var body = html.lastChild;
-      var form = body.firstChild;
-      var numeroHijoHead = head.childNodes.length;
-      var numeroHijoBody = body.childNodes.length;
-      //alert (numeroHijoHead);
-      //alert (numeroHijoBody);
-
-      document.write (html + "<br>");
-      document.write("........." + html.childNodes[0] + "<br>");
-      //document.write(".................." + head.childNodes[0] + "<br>")
-      document.write(".................." + head.childNodes[1] + "<br>")
-      //document.write(".................." + head.childNodes[2] + "<br>")
-      document.write(".................." + head.childNodes[3] + "<br>")
-      //document.write(".................." + head.childNodes[4] + "<br>")
-      document.write(".................." + head.childNodes[5] + "<br>")
-      //document.write(".................." + head.childNodes[6] + "<br>")
-      document.write(".................." + head.childNodes[7] + "<br>")
-      //document.write(".................." + head.childNodes[8] + "<br>")
+      var html = document;
+      var todo =document.querySelectorAll('*');
+      console.log(todo);
+      for (var i = 0; i <= todo.length; i++){
+        document.write(todo[i].nodeName + "<br>");
+      }
      
-      document.write("........." + html.childNodes[2] + "<br>");
-      //document.write(".................." + body.childNodes[0] + "<br>")
-      document.write(".................." + body.childNodes[1] + "<br>")
-      document.write(".................." + form.childNodes[1] + "<br>")
-
-
-
-      
-
- /*var htmlValue = nombre.childNodes[0].nodeValue;
- alert (htmlValue);
-      
-
-      for(var i=0; i<=html.childNodes.length; i++){
-        document.write(html.childNodes[i] + "<br>" ); //.nodeValue;
-      }
-
-      for(var i=0; i<=head.childNodes.length; i++){
-        document.write("........." + head.childNodes[i] + "<br>" );
-      }
-
-      for(var i=0; i<=body.childNodes.length; i++){
-        document.write("....................." + body.childNodes[i] + "<br>"  );
-      }
-
-*/
-      
-
-
     </script>
 </body>
 </html>
