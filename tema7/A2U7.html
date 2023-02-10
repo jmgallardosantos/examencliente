@@ -17,8 +17,8 @@
     <script>
         window.addEventListener("load", inicio);
         function inicio(){
-            document.getElementById("ciudad").addEventListener("Keyup", mostrarNombre);
-         }
+            document.getElementById("ciudad").addEventListener('keyup', mostrarNombre());
+         }//abelsema
 
         function mostrarNombre(e){
             var cadena = document.getElementById("nombre").value;
@@ -30,7 +30,7 @@
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange= function(){
                     if (this.readyState ==4 && this.status==200){
-                        document.getElementById("sugerencia").innerHTML = this.respnseText;
+                        document.getElementById("sugerencia").innerHTML = this.responseText;
                     }
                 };
                 xhr.open("GET","arrayciudades.php?ciudad="+cadena,true);  //URL
