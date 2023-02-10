@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2U7</title>
+</head>
+<body>
+    <p>Escribe el nombre de alguna ciudad donde quieres ir:</p>
+    <form>
+        Ciudad: 
+        <input type="text" id="ciudad"></form>
+    </form>
+    <p>Sugerencias: <span id="sugerencia"></span></p>
+
+    <script>
+        window.addEventListener("load", inicio);
+        function inicio(){
+            document.getElementById("ciudad").addEventListener("Keyup", mostrarNombre);
+         }
+
+        function mostrarNombre(e){
+            var cadena = document.getElementById("nombre").value;
+
+            if(cadena.length==0){
+                document.getElementById("sugerencia").innerHTML="";
+                return;
+            }else {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange= function(){
+                    if (this.readyState ==4 && this.status==200){
+                        document.getElementById("sugerencia").innerHTML = this.respnseText;
+                    }
+                };
+                xhr.open("GET","arrayciudades.php?ciudad="+cadena,true);  //URL
+                xhr.send(); // si fuera post .......
+
+            }
+        }
+
+    </script>
+</body>
+</html>
